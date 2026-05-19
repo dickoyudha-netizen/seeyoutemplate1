@@ -745,8 +745,9 @@ textarea.r-input{min-height:80px;resize:vertical;border:1px solid rgba(197,165,9
   <div class="couple-wrap">
     <div class="person-card rev-l">
       <p class="person-role">The Bride</p>
-      <div class="person-img" id="brideImgWrap">
-        <div class="person-img-placeholder" id="bridePlaceholder">♀</div>
+      <div class="person-img">
+        <div class="person-img-placeholder">♀</div>
+        <!-- <img src="foto-wanita.jpg" alt="NAMA_WANITA"> -->
         <div class="person-img-frame"></div>
       </div>
       <h3 class="person-name-card" id="brideNameCard">NAMA_WANITA</h3>
@@ -760,8 +761,9 @@ textarea.r-input{min-height:80px;resize:vertical;border:1px solid rgba(197,165,9
     <div class="couple-divider">⁊</div>
     <div class="person-card rev-r">
       <p class="person-role">The Groom</p>
-      <div class="person-img" id="groomImgWrap">
-        <div class="person-img-placeholder" id="groomPlaceholder">♂</div>
+      <div class="person-img">
+        <div class="person-img-placeholder">♂</div>
+        <!-- <img src="foto-pria.jpg" alt="NAMA_PRIA"> -->
         <div class="person-img-frame"></div>
       </div>
       <h3 class="person-name-card" id="groomNameCard">NAMA_PRIA</h3>
@@ -911,90 +913,46 @@ textarea.r-input{min-height:80px;resize:vertical;border:1px solid rgba(197,165,9
 // ⚙️  CONFIG — EDIT BAGIAN INI UNTUK SETIAP KLIEN
 // ================================================================
 const CONFIG = {
-
-  // DATA PENGANTIN
-  namaPria:     'NAMA_PRIA',
-  namaWanita:   'NAMA_WANITA',
-  igPria:       'instagram_pria',
-  igWanita:     'instagram_wanita',
-  urutanPria:   'Putra Pertama',
-  ayahPria:     'AYAH_PRIA',
-  ibuPria:      'IBU_PRIA',
-  urutanWanita: 'Putri Kedua',
-  ayahWanita:   'AYAH_WANITA',
-  ibuWanita:    'IBU_WANITA',
-
-  // TANGGAL
-  weddingDate:  '2026-06-07T06:30:00',
-  tanggalAngka: '07 . 06 . 26',
-  tanggalPanjang:'Minggu, 07 Juni 2026',
-
-  // HASHTAG
-  hashtag: '#WeddingHashtag',
-
-  // POEM (cover & hero poem section)
-  poem: `"Love, it could make you sad.\nIt could even make you lonely sometimes.\nBut that love can also make you happier\nthan you'll ever be."`,
-
-  // LOVE STORY QUOTE
-  storyQuote: '"Every love story is beautiful, but ours is my favorite."',
-
-  // AYAT
-  ayat: '"Di antara tanda-tanda kebesaran-Nya ialah bahwa Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri agar kamu merasa tenteram kepadanya. Dia menjadikan di antaramu rasa cinta dan kasih sayang."',
-  ayatRef: 'QS. Ar-Rum : 21',
-
-  // EVENTS
-  events: [
-    {
-      nama: 'Akad Nikah',
-      hari: 'Minggu',
-      tanggal: '07 Juni 2026',
-      jam: '06.30 WIB - Selesai',
-      lokasi: 'NAMA_GEDUNG',
-      alamat: 'ALAMAT_LENGKAP',
-      maps: '#'
-    },
-    {
-      nama: 'Resepsi',
-      hari: 'Minggu',
-      tanggal: '07 Juni 2026',
-      jam: '09.00 - 11.00 WIB',
-      lokasi: 'NAMA_GEDUNG',
-      alamat: 'ALAMAT_LENGKAP',
-      maps: '#'
-    },
-  ],
-
-  // GALERI — isi URL foto (min 5, maks 14)
-  galeri: ['','','','','',''],
-
-  // LOVE STORY
-  loveStory: [
-    { tahun:'2019', judul:'Pertemuan Pertama', cerita:'CERITA_PERTEMUAN' },
-    { tahun:'2022', judul:'Lamaran',           cerita:'CERITA_LAMARAN'    },
-    { tahun:'2026', judul:'Hari Bahagia',      cerita:'CERITA_PERNIKAHAN' },
-  ],
-
-  // REKENING
-  rekening: [
-    { bank:'BCA',  nomor:'1234 5678 90', atasNama:'NAMA_PRIA'   },
-    { bank:'BNI',  nomor:'0987 6543 21', atasNama:'NAMA_WANITA' },
-  ],
+  namaPria:      'Dicko Yudhatama',
+  namaWanita:    'Silvi Yuniar',
+  igPria:        'instagram_dicko',
+  igWanita:      'instagram_silvi',
+  urutanPria:    'Putra Pertama',
+  ayahPria:      'Riswantoro',
+  ibuPria:       'Saidah',
+  urutanWanita:  'Putri Ketiga',
+  ayahWanita:    'Risanudin',
+  ibuWanita:     'Yeni Punita',
 
   // Foto pengantin — URL langsung dari Google Drive
   // Kosong = tampil placeholder ornamen
   fotoPria:   '',
   fotoWanita: '',
 
-  // MUSIK — link file MP3 langsung (bukan YouTube)
+  weddingDate:   '2026-05-22TMandi:00',
+  tanggalAngka:  'NaN . NaN . N',
+  tanggalPanjang:'[Ngunduh Mantu] Jumat, 22 Mei 2026 08:00–10:00 | Hotel Novotel  | Jl. Gatot Subroto No.136, Sukaraja, Kec. Bumi Waras, Kota Bandar Lampung, Lampung 35226 | Maps: https://maps.app.goo.gl/FFD4RqejSFNLAYrw8',
+  hashtag: '#dickosilvi2026',
+  poem: '"Cinta itu bukan tentang menemukan orang yang sempurna,\nmelainkan tentang melihat orang yang tidak sempurna dengan cara yang sempurna."',
+  storyQuote: '"Every love story is beautiful, but ours is my favorite."',
+  ayat: '"Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri."',
+  ayatRef: 'QS. Ar-Rum : 21',
+  events: [
+    {icon:'🕌',nama:'Akad Nikah',tanggal:'[Ngunduh Mantu] Jumat, 22 Mei 2026 08:00–10:00 | Hotel Novotel  | Jl. Gatot Subroto No.136, Sukaraja, Kec. Bumi Waras, Kota Bandar Lampung, Lampung 35226 | Maps: https://maps.app.goo.gl/FFD4RqejSFNLAYrw8',jam:'Mandiri · 123456789 · a/n Dicko Yudhatama | BSI · 789456123 · a/n Silvi Yuniar WIB',selesai:'',lokasi:'Elegant Gold',alamat:'',maps:'#'},
+    {icon:'🌸',nama:'Resepsi Pernikahan',tanggal:'https://www.youtube.com/watch?v=NbCCGvl5AQE&list=RDNbCCGvl5AQE&start_radio=1',jam:'https://drive.google.com/file/d/14GInRaGqOh7ZMNy6TTAkxdE3ZJJB1EZW/view?usp=drive_link WIB',selesai:'',lokasi:'https://drive.google.com/drive/folders/1U6zBTZHZAZyFy5Z_RcqTyRiceOmy3PWf?usp=drive_link',alamat:'',maps:'#'}
+  ],
+  galeri: ['', '', '', '', ''],
+  rekening: [
+    {bank:'BCA',nomor:'0000000000',atasNama:'Silvi Yuniar'}
+  ],
+  loveStory: [
+    {tahun:'2019',judul:'Pertemuan Pertama',cerita:'ISI_CERITA'}
+  ],
   musikURL: '',
-
-  // RSVP
   rsvpScriptURL: 'GANTI_DENGAN_URL_RSVP_APPS_SCRIPT',
-  clientId:      'nama-pria-nama-wanita-2026',
-
+  clientId: 'dicko-yudhatama-silvi-yuniar-2026',
 };
 
-// ================================================================
 // ⛔ JANGAN UBAH APAPUN DI BAWAH GARIS INI
 // ================================================================
 
@@ -1043,21 +1001,7 @@ window.addEventListener('DOMContentLoaded', () => {
   groomIG.href = `https://instagram.com/${CONFIG.igPria}`;
   groomIG.innerHTML = `<span class="ig-icon">📸</span>@${CONFIG.igPria}`;
 
-  // Load foto pengantin dari CONFIG (Drive URL)
-  function loadFoto(wrapId, placeholderId, url, alt) {
-    if (!url) return; // tidak ada foto, tampilkan placeholder
-    const wrap = document.getElementById(wrapId);
-    const ph   = document.getElementById(placeholderId);
-    const img  = document.createElement('img');
-    img.src   = url;
-    img.alt   = alt;
-    img.style.cssText = 'width:100%;height:100%;object-fit:cover;object-position:top;display:block';
-    img.onerror = () => img.remove(); // gagal load → tetap tampil placeholder
-    if (ph) ph.style.display = 'none';
-    wrap.appendChild(img);
-  }
-  loadFoto('brideImgWrap', 'bridePlaceholder', CONFIG.fotoWanita, CONFIG.namaWanita);
-  loadFoto('groomImgWrap', 'groomPlaceholder', CONFIG.fotoPria,   CONFIG.namaPria);
+  // Calendar link
   const w = new Date(CONFIG.weddingDate);
   const fmt = d => d.toISOString().replace(/[-:]/g,'').split('.')[0];
   const end = new Date(w); end.setHours(23,59,0);

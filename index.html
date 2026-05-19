@@ -912,9 +912,9 @@ textarea.r-input{min-height:80px;resize:vertical;border:1px solid rgba(197,165,9
 // ================================================================
 const CONFIG = {
   namaPria:      'Dicko Yudhatama',
-  namaWanita:    'Silvi',
+  namaWanita:    'Silvi Yuniar',
   igPria:        'instagram_dicko',
-  igWanita:      'instagram_yuniar',
+  igWanita:      'instagram_silvi',
   urutanPria:    'Putra Pertama',
   ayahPria:      'Riswantoro',
   ibuPria:       'Saidah',
@@ -930,25 +930,25 @@ const CONFIG = {
   weddingDate:   '2026-05-23T08:00:00',
   tanggalAngka:  '23 . 05 . 26',
   tanggalPanjang:'Sabtu, 23 Mei 2026',
-  hashtag: '#dickoyuniar2026',
+  hashtag: '#dickosilvi2026',
   poem: '"Cinta itu bukan tentang menemukan orang yang sempurna,\nmelainkan tentang melihat orang yang tidak sempurna dengan cara yang sempurna."',
   storyQuote: '"Every love story is beautiful, but ours is my favorite."',
   ayat: '"Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri."',
   ayatRef: 'QS. Ar-Rum : 21',
   events: [
-    {icon:'🏡',nama:'Ngunduh Mantu',tanggal:'Sabtu, 23 Mei 2026',jam:'08:00 WIB',selesai:'10:00 WIB',lokasi:'Hotel Novotel',alamat:'Jl. Gatot Subroto No.136, Sukaraja, Kec. Bumi Waras, Kota Bandar Lampung, Lampung 35226',maps:'https://maps.app.goo.gl/wEqX3GJYNorYcAtv8'}
+    {icon:'🏡',nama:'Ngunduh Mantu',tanggal:'Sabtu, 23 Mei 2026',jam:'08:00 WIB',selesai:'10:00 WIB',lokasi:'Hotel Novotel',alamat:'Jl. Gatot Subroto No.136, Sukaraja, Kec. Bumi Waras, Kota Bandar Lampung, Lampung 35226',maps:'https://maps.app.goo.gl/KJoNLk84PZytbbAS7'}
   ],
   galeri: ['', '', '', '', ''],
   rekening: [
     {bank:'Mandiri',nomor:'123456789',atasNama:'Dicko Yudhatama'},
-    {bank:'BRI',nomor:'987654321',atasNama:'Silvi Yuniar'}
+    {bank:'BSI',nomor:'987456321',atasNama:'Silvi Yuniar'}
   ],
   loveStory: [
-    {tahun:'2019',judul:'Pertemuan Pertama',cerita:'Kami bertemu tahun 2023 ketika saya (Dicko Yudhatama) sedang OJT di Kanwil DJPb Lampung'}
+    {tahun:'2019',judul:'Pertemuan Pertama',cerita:'Kami betemu ketika saya (Dicko) sedang OJT di Kanwil DJPb Lampung'}
   ],
   musikURL: 'https://www.youtube.com/watch?v=LA4quHk3b9Y',
   rsvpScriptURL: 'GANTI_DENGAN_URL_RSVP_APPS_SCRIPT',
-  clientId: 'dicko-yudhatama-silvi-2026',
+  clientId: 'dicko-yudhatama-silvi-yuniar-2026',
 };
 
 // ⛔ JANGAN UBAH APAPUN DI BAWAH GARIS INI
@@ -1001,16 +1001,36 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Load foto pengantin dari CONFIG (Drive URL)
   function loadFoto(wrapId, placeholderId, url, alt) {
-    if (!url) return; // tidak ada foto, tampilkan placeholder
-    const wrap = document.getElementById(wrapId);
-    const ph   = document.getElementById(placeholderId);
-    const img  = document.createElement('img');
-    img.src   = url;
-    img.alt   = alt;
+    if (!url) return;
+    var wrap = document.getElementById(wrapId);
+    var ph   = document.getElementById(placeholderId);
+    if (!wrap) return;
+
+    var img  = document.createElement('img');
+    img.alt  = alt;
     img.style.cssText = 'width:100%;height:100%;object-fit:cover;object-position:top;display:block';
-    img.onerror = () => img.remove(); // gagal load → tetap tampil placeholder
-    if (ph) ph.style.display = 'none';
-    wrap.appendChild(img);
+
+    // Coba URL utama (thumbnail Drive)
+    img.src = url;
+
+    img.onload = function() {
+      if (ph) ph.style.display = 'none';
+      wrap.appendChild(img);
+    };
+
+    img.onerror = function() {
+      // Coba format URL alternatif jika thumbnail gagal
+      var fileId = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+      if (fileId && fileId[1]) {
+        var altUrl = 'https://lh3.googleusercontent.com/d/' + fileId[1];
+        if (img.src !== altUrl) {
+          img.src = altUrl;
+          return;
+        }
+      }
+      // Kedua format gagal — tetap tampil placeholder
+      console.warn('Foto tidak bisa dimuat:', url);
+    };
   }
   loadFoto('brideImgWrap', 'bridePlaceholder', CONFIG.fotoWanita, CONFIG.namaWanita);
   loadFoto('groomImgWrap', 'groomPlaceholder', CONFIG.fotoPria,   CONFIG.namaPria);
